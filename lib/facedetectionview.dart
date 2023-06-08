@@ -136,178 +136,186 @@ class FaceRecognitionViewState extends State<FaceRecognitionView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Face Recognition'),
-        toolbarHeight: 70,
-        centerTitle: true,
-      ),
-      body: Stack(
-        children: <Widget>[
-          FaceDetectionView(faceRecognitionViewState: this),
-          SizedBox(
-            width: double.infinity,
-            height: double.infinity,
-            child: CustomPaint(
-              painter: FacePainter(
-                  faces: _faces, livenessThreshold: _livenessThreshold),
+    return WillPopScope(
+      onWillPop: () async {
+        faceDetectionViewController?.stopCamera();
+        return true;
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Face Recognition'),
+          toolbarHeight: 70,
+          centerTitle: true,
+        ),
+        body: Stack(
+          children: <Widget>[
+            FaceDetectionView(faceRecognitionViewState: this),
+            SizedBox(
+              width: double.infinity,
+              height: double.infinity,
+              child: CustomPaint(
+                painter: FacePainter(
+                    faces: _faces, livenessThreshold: _livenessThreshold),
+              ),
             ),
-          ),
-          Visibility(
-              visible: _recognized,
-              child: Container(
-                width: double.infinity,
-                height: double.infinity,
-                color: Theme.of(context).colorScheme.background,
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                          _enrolledFace != null
-                              ? Column(
-                                  children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(8.0),
-                                      child: Image.memory(
-                                        _enrolledFace,
-                                        width: 160,
-                                        height: 160,
-                                      ),
-                                    ),
-                                    const SizedBox(
-                                      height: 5,
-                                    ),
-                                    const Text('Enrolled')
-                                  ],
-                                )
-                              : const SizedBox(
-                                  height: 1,
-                                ),
-                          _identifiedFace != null
-                              ? Column(
-                                  children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(8.0),
-                                      child: Image.memory(
-                                        _identifiedFace,
-                                        width: 160,
-                                        height: 160,
-                                      ),
-                                    ),
-                                    const SizedBox(
-                                      height: 5,
-                                    ),
-                                    const Text('Identified')
-                                  ],
-                                )
-                              : const SizedBox(
-                                  height: 1,
-                                )
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Row(
-                        children: [
-                          const SizedBox(
-                            width: 16,
-                          ),
-                          Text(
-                            'Identified: $_identifiedName',
-                            style: const TextStyle(fontSize: 18),
-                          )
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Row(
-                        children: [
-                          const SizedBox(
-                            width: 16,
-                          ),
-                          Text(
-                            'Similarity: $_identifiedSimilarity',
-                            style: const TextStyle(fontSize: 18),
-                          )
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Row(
-                        children: [
-                          const SizedBox(
-                            width: 16,
-                          ),
-                          Text(
-                            'Liveness score: $_identifiedLiveness',
-                            style: const TextStyle(fontSize: 18),
-                          )
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Row(
-                        children: [
-                          const SizedBox(
-                            width: 16,
-                          ),
-                          Text(
-                            'Yaw: $_identifiedYaw',
-                            style: const TextStyle(fontSize: 18),
-                          )
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Row(
-                        children: [
-                          const SizedBox(
-                            width: 16,
-                          ),
-                          Text(
-                            'Roll: $_identifiedRoll',
-                            style: const TextStyle(fontSize: 18),
-                          )
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Row(
-                        children: [
-                          const SizedBox(
-                            width: 16,
-                          ),
-                          Text(
-                            'Pitch: $_identifiedPitch',
-                            style: const TextStyle(fontSize: 18),
-                          )
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 16,
-                      ),
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor:
-                              Theme.of(context).colorScheme.primaryContainer,
+            Visibility(
+                visible: _recognized,
+                child: Container(
+                  width: double.infinity,
+                  height: double.infinity,
+                  color: Theme.of(context).colorScheme.background,
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        const SizedBox(
+                          height: 10,
                         ),
-                        onPressed: () => faceRecognitionStart(),
-                        child: const Text('Try again'),
-                      ),
-                    ]),
-              )),
-        ],
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: <Widget>[
+                            _enrolledFace != null
+                                ? Column(
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        child: Image.memory(
+                                          _enrolledFace,
+                                          width: 160,
+                                          height: 160,
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        height: 5,
+                                      ),
+                                      const Text('Enrolled')
+                                    ],
+                                  )
+                                : const SizedBox(
+                                    height: 1,
+                                  ),
+                            _identifiedFace != null
+                                ? Column(
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        child: Image.memory(
+                                          _identifiedFace,
+                                          width: 160,
+                                          height: 160,
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        height: 5,
+                                      ),
+                                      const Text('Identified')
+                                    ],
+                                  )
+                                : const SizedBox(
+                                    height: 1,
+                                  )
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          children: [
+                            const SizedBox(
+                              width: 16,
+                            ),
+                            Text(
+                              'Identified: $_identifiedName',
+                              style: const TextStyle(fontSize: 18),
+                            )
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          children: [
+                            const SizedBox(
+                              width: 16,
+                            ),
+                            Text(
+                              'Similarity: $_identifiedSimilarity',
+                              style: const TextStyle(fontSize: 18),
+                            )
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          children: [
+                            const SizedBox(
+                              width: 16,
+                            ),
+                            Text(
+                              'Liveness score: $_identifiedLiveness',
+                              style: const TextStyle(fontSize: 18),
+                            )
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          children: [
+                            const SizedBox(
+                              width: 16,
+                            ),
+                            Text(
+                              'Yaw: $_identifiedYaw',
+                              style: const TextStyle(fontSize: 18),
+                            )
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          children: [
+                            const SizedBox(
+                              width: 16,
+                            ),
+                            Text(
+                              'Roll: $_identifiedRoll',
+                              style: const TextStyle(fontSize: 18),
+                            )
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          children: [
+                            const SizedBox(
+                              width: 16,
+                            ),
+                            Text(
+                              'Pitch: $_identifiedPitch',
+                              style: const TextStyle(fontSize: 18),
+                            )
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 16,
+                        ),
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor:
+                                Theme.of(context).colorScheme.primaryContainer,
+                          ),
+                          onPressed: () => faceRecognitionStart(),
+                          child: const Text('Try again'),
+                        ),
+                      ]),
+                )),
+          ],
+        ),
       ),
     );
   }

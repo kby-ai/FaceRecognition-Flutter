@@ -59,7 +59,6 @@ class FacesdkPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
       result.success(ret)
     } else if (call.method == "setParam") {
       val check_liveness_level: Int? = call.argument("check_liveness_level")
-      Log.e("TestEngine", "check_liveness_level: " + check_liveness_level)
       if(check_liveness_level != null)
         FaceDetectionFlutterView.livenessDetectionLevel = check_liveness_level!!
       result.success(0)
