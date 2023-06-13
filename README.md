@@ -118,6 +118,8 @@ Skype: live:.cid.66e2522354b1049b
   include ':libfacesdk'
   ```
 #### 1.2 'Face SDK Plugin' Setup
+  -  Copy 'facesdk_plugin' folder to the root folder of your project.
+  
   - Add the dependency in your pubspec.yaml file.
   ```
     facesdk_plugin:
