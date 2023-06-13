@@ -107,8 +107,17 @@ Skype: live:.cid.66e2522354b1049b
   If you plan to run the iOS app, please refer to the following link for detailed instructions: https://docs.flutter.dev/deployment/ios
   
 ## About SDK
-### 1. FaceSDK Plugin
-#### 1.1 Installing
+### 1. Setup
+### 1.1 'Face SDK' Setup
+  > Android
+
+  -  Copy the SDK (libfacesdk folder) to the 'android' folder of your project.
+
+  -  Add SDK to the project in settings.gradle
+  ```
+  include ':libfacesdk'
+  ```
+#### 1.2 'Face SDK Plugin' Setup
   - Add the dependency in your pubspec.yaml file.
   ```
     facesdk_plugin:
@@ -119,8 +128,9 @@ Skype: live:.cid.66e2522354b1049b
     import 'package:facesdk_plugin/facesdk_plugin.dart';
     import 'package:facesdk_plugin/facedetection_interface.dart';
   ```
-#### 1.2 FacesdkPlugin
-  - Activation FacesdkPlugin
+### 2 API Usages
+#### 2.1 FacesdkPlugin
+  - Activate the 'FacesdkPlugin' by calling the 'setActivation' method:
   ```
     final _facesdkPlugin = FacesdkPlugin();
     ...
@@ -133,43 +143,29 @@ Skype: live:.cid.66e2522354b1049b
                 "Yo1VrNPVGDWA/Qj6Z2tPC0ENQaB4u/vXAS0ipg==")
             .then((value) => facepluginState = value ?? -1);  
   ```
-  - Initialize FacesdkPlugin
+  - Initialize the 'FacesdkPlugin':
   ```
   await _facesdkPlugin
             .init()
             .then((value) => facepluginState = value ?? -1)
   ```
-  - Setting Params
+  - Set parameters using the 'setParam' method:
   ```
   await _facesdkPlugin
           .setParam({'check_liveness_level': livenessLevel ?? 0})
   ```
-  - Extract Faces
+  - Extract faces using the 'extractFaces' method:
   ```
   final faces = await _facesdkPlugin.extractFaces(image.path)
   ```
-  - Calculation Similarity
+  - Calculate similarity between faces using the 'similarityCalculation' method:
   ```
   double similarity = await _facesdkPlugin.similarityCalculation(
                 face['templates'], person.templates) ??
             -1;
   ```
-#### 1.3 FaceDetectionInterface
+#### 2.2 FaceDetectionInterface
   To build the native camera screen and process face detection, please refer to the [lib/facedetectionview.dart](https://github.com/kby-ai/FaceRecognition-Flutter/blob/main/lib/facedetectionview.dart) file in the repository. 
   
   This file contains the necessary code for implementing the camera screen and performing face detection.
   
-### 2. Face SDK Setup
-  > Android
-
-  -  Copy the SDK (libfacesdk folder) to the root folder of your project.
-
-  -  Add SDK to the project in settings.gradle
-  ```
-  include ':libfacesdk'
-  ```
-
-  -  Add dependency to your build.gradle
-  ```
-  implementation project(path: ':libfacesdk')
-  ```
