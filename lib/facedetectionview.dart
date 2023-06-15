@@ -105,7 +105,8 @@ class FaceRecognitionViewState extends State<FaceRecognitionView> {
         }
       }
 
-      if (maxSimilarity > _identifyThreshold) {
+      if (maxSimilarity > _identifyThreshold &&
+          maxLiveness > _livenessThreshold) {
         recognized = true;
       }
     }

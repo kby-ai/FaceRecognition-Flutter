@@ -176,7 +176,12 @@ class CameraBaseView(activity: Activity): PluginRegistry.RequestPermissionsResul
     inner class SampleFrameProcessor : FrameProcessor {
         override fun invoke(frame: Frame) {
             activity.runOnUiThread{dummyLayout.visibility = View.INVISIBLE}
-            val bitmap: Bitmap = FaceSDK.yuv2Bitmap(frame.image, frame.size.width, frame.size.height, 7)
+            var cameraMode = 7
+            if(cameraLens == 0) {
+                cameraMode = 6
+            }
+
+            val bitmap: Bitmap = FaceSDK.yuv2Bitmap(frame.image, frame.size.width, frame.size.height, cameraMode)
             cameraViewInterface?.onFrame(bitmap)
             bitmap.recycle()
         }
