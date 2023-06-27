@@ -108,17 +108,14 @@ class FaceDetectionFlutterView : NSObject, FlutterPlatformView, AVCaptureVideoDa
         let image = UIImage(cgImage: cgImage!)
         CVPixelBufferUnlockBaseAddress(pixelBuffer, CVPixelBufferLockFlags.readOnly)
 
-        let capturedImage = image.rotate(radians: .pi/2).flipHorizontally()
+        var capturedImage = image.rotate(radians: .pi/2)
+        if(self.cameraLens == .front()) {
+            capturedImage = capturedImage.flipHorizontally()
+        }
         
         let faceBoxes = FaceSDK.faceDetection(capturedImage)
         var faceBoxesMap = NSMutableArray()
         for face in (faceBoxes as NSArray as! [FaceBox]) {
-            if(self.cameraLens == .back) {
-                let tmp = face.x1
-                face.x1 = Int32(capturedImage.size.width) - face.x2 - 1;
-                face.x2 = Int32(capturedImage.size.width) - tmp - 1;
-            }
-
             let templates = FaceSDK.templateExtraction(capturedImage, faceBox: face)
             let faceImage = capturedImage.cropFace(faceBox: face)
             let faceJpg = faceImage!.jpegData(compressionQuality: CGFloat(1.0))
