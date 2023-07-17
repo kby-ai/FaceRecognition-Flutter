@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   facesdk_plugin:
     path: ./facesdk_plugin
+  flutter_exif_rotation: ^0.5.1
 
 dev_dependencies:
   flutter_test:

@@ -5,6 +5,7 @@ import 'dart:async';
 import 'dart:math';
 import 'package:facesdk_plugin/facesdk_plugin.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:flutter_exif_rotation/flutter_exif_rotation.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -232,7 +233,10 @@ class MyHomePageState extends State<MyHomePage> {
       final image = await ImagePicker().pickImage(source: ImageSource.gallery);
       if (image == null) return;
 
-      final faces = await _facesdkPlugin.extractFaces(image.path);
+      var rotatedImage =
+          await FlutterExifRotation.rotateImage(path: image.path);
+
+      final faces = await _facesdkPlugin.extractFaces(rotatedImage.path);
       for (var face in faces) {
         num randomNumber =
             10000 + Random().nextInt(10000); // from 0 upto 99 included
