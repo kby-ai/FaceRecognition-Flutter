@@ -109,7 +109,7 @@ class FaceDetectionFlutterView : NSObject, FlutterPlatformView, AVCaptureVideoDa
         CVPixelBufferUnlockBaseAddress(pixelBuffer, CVPixelBufferLockFlags.readOnly)
 
         var capturedImage = image.rotate(radians: .pi/2)
-        if(self.cameraLens == .front()) {
+        if(self.cameraLens == .front) {
             capturedImage = capturedImage.flipHorizontally()
         }
         
