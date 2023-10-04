@@ -64,20 +64,19 @@ This project is a Face Recognition and Face Liveness Detection project for Flutt
 https://drive.google.com/file/d/1cn_89fYDYhq8ANXs2epO-KBv7p5ZnWcA/view?usp=sharing
 
 ## Screenshots
-
 <p float="left">
-  <img src="https://user-images.githubusercontent.com/125717930/232038080-fb3a9bbb-dbc3-4d17-ac40-e14d83f4253a.png" width=300/>
-  <img src="https://user-images.githubusercontent.com/125717930/232038075-8d35cc96-7b0e-4a42-80a5-32a9efca33ee.png" width=300/>
+  <img src="https://github.com/kby-ai/FaceRecognition-Flutter/assets/125717930/724fa0e5-7d32-45f4-9d63-c192e79c15a0" width=300/>
+  <img src="https://github.com/kby-ai/FaceRecognition-Flutter/assets/125717930/ea7f4653-10dc-45d4-a00c-2ae65cfd678b" width=300/>
 </p>
 
 <p float="left">
-  <img src="https://user-images.githubusercontent.com/125717930/232038058-8ac20b97-ec60-4986-b467-fffd15e3b2ea.png" width=300/>
-  <img src="https://user-images.githubusercontent.com/125717930/232038066-aad39f28-3432-4822-8da1-a9f80da39e7f.png" width=300/>
+  <img src="https://github.com/kby-ai/FaceRecognition-Flutter/assets/125717930/1ae66933-300e-4870-a211-7b9100c6d030" width=300/>
+  <img src="https://github.com/kby-ai/FaceRecognition-Flutter/assets/125717930/cd8d4643-cbca-4fc5-b239-574383bbdc88" width=300/>
 </p>
 
 <p float="left">
-  <img src="https://user-images.githubusercontent.com/125717930/232038042-1f377ccd-4b9e-462c-a071-ddf1c133ce97.png" width=300/>
-  <img src="https://user-images.githubusercontent.com/125717930/232038055-aa149d97-1362-4d36-b4d9-91aab6766d36.png" width=300/>
+  <img src="https://github.com/kby-ai/FaceRecognition-Flutter/assets/125717930/763dd8fa-2463-4534-9497-370b4a9dfd62" width=300/>
+  <img src="https://github.com/kby-ai/FaceRecognition-Flutter/assets/125717930/26f1c3aa-d90a-4935-af8a-bff6741bbefc" width=300/>
 </p>
 
 ## SDK License
