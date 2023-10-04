@@ -70,7 +70,7 @@ https://drive.google.com/file/d/1cn_89fYDYhq8ANXs2epO-KBv7p5ZnWcA/view?usp=shari
 </p>
 
 <p float="left">
-  <img src="https://github.com/kby-ai/FaceRecognition-Flutter/assets/125717930/1ae66933-300e-4870-a211-7b9100c6d030" width=300/>
+  <img src="https://github.com/kby-ai/FaceRecognition-Flutter/assets/125717930/f1b0a0cd-5e5d-4b03-9dae-a1d3839eb8ee" width=300/>
   <img src="https://github.com/kby-ai/FaceRecognition-Flutter/assets/125717930/cd8d4643-cbca-4fc5-b239-574383bbdc88" width=300/>
 </p>
 
