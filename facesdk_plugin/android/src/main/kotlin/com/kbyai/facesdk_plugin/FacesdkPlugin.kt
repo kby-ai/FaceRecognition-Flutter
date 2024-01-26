@@ -104,7 +104,7 @@ class FacesdkPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
       val templates1: ByteArray? = call.argument("templates1")
       val templates2: ByteArray? = call.argument("templates2")
 
-      val similarity: Float = FaceSDK.similarityCalucation(templates1!!, templates2!!)
+      val similarity: Float = FaceSDK.similarityCalculation(templates1!!, templates2!!)
       result.success(similarity)
     } else {
       result.notImplemented()
