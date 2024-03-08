@@ -45,6 +45,11 @@ This project is a Face Recognition and Face Liveness Detection project for Flutt
   <img alt="" src="https://user-images.githubusercontent.com/125717930/230804673-17c99e7d-6a21-4a64-8b9e-a465142da148.png" height=80/>
 </a>
 
+## Performance Video
+
+You can visit our YouTube video [here](https://www.youtube.com/watch?v=YybJW0Nfl4M) to see how well our demo app works.</br>
+[![Face Recognition Android](https://img.youtube.com/vi/YybJW0Nfl4M/0.jpg)](https://www.youtube.com/watch?v=YybJW0Nfl4M)
+
 ## Screenshots
 <p float="left">
   <img src="https://github.com/kby-ai/FaceRecognition-Flutter/assets/125717930/724fa0e5-7d32-45f4-9d63-c192e79c15a0" width=200/>
