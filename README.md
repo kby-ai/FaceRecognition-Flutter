@@ -70,18 +70,12 @@ The face recognition project relies on kby-ai's SDK, which requires a license fo
 
 - The code below shows how to use the license: https://github.com/kby-ai/FaceRecognition-Flutter/blob/0ed0fea9f86d73d08aff81e25da479c62f2ebc05/lib/main.dart#L68-L94
 
-- To request a license, please contact us:
-```
-Email: contact@kby-ai.com
-
-Telegram: @kbyai
-
-WhatsApp: +19092802609
-
-Skype: live:.cid.66e2522354b1049b
-
-Facebook: https://www.facebook.com/KBYAI
-```
+- To request a license, please contact us:</br>
+🧙`Email:` contact@kby-ai.com</br>
+🧙`Telegram:` @kbyai</br>
+🧙`WhatsApp:` +19092802609</br>
+🧙`Skype:` live:.cid.66e2522354b1049b</br>
+🧙`Facebook:` https://www.facebook.com/KBYAI</br>
 
 ## How To Run
 ### 1. Flutter Setup
