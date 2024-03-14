@@ -14,7 +14,7 @@
 
 This repository demonstrates both face liveness detection and face recognition technology for Flutter on Android and iOS platform.
 
-> In this repository, we integrated KBY-AI's both face liveness detection and face recognition technology into Flutte project for both Android and iOS.</br>
+> In this repository, we integrated KBY-AI's both face liveness detection and face recognition technology into Flutter project for both Android and iOS.</br>
 ### ◾FaceSDK(Mobile) Details
 
   | Basic      | 🔽 Standard | Premium |
