@@ -12,9 +12,9 @@
 # FaceRecognition-Flutter
 ## Overview
 
-This repository demonstrates both face liveness detection and face recognition technology for Flutter on Android and iOS platform.
+This repository demonstrates both face liveness detection and face recognition technology for Flutter on Android and iOS platforms.
 
-> In this repository, we integrated KBY-AI's both face liveness detection and face recognition technology into Flutter project for both Android and iOS.</br>
+> In this repository, we integrated KBY-AI's face liveness detection and face recognition technology into the Flutter project for both Android and iOS.</br>
 ### ◾FaceSDK(Mobile) Details
 
   | Basic      | 🔽 Standard | Premium |
@@ -43,7 +43,7 @@ This repository demonstrates both face liveness detection and face recognition t
 
  > To get Face SDK(server), please visit products [here](https://github.com/kby-ai/Product).<br/>
 
-## Try the APK
+## Try with Demo App
 
 ### Google Play
 
@@ -51,9 +51,15 @@ This repository demonstrates both face liveness detection and face recognition t
   <img alt="" src="https://user-images.githubusercontent.com/125717930/230804673-17c99e7d-6a21-4a64-8b9e-a465142da148.png" height=80/>
 </a>
 
+### App Store
+
+<a href="https://apps.apple.com/us/app/kby-ai-face-recognition/id6448648922" target="_blank">
+  <img alt="" src="https://user-images.githubusercontent.com/125717930/235276083-d20fe057-214d-497c-a431-4569bbeed2fe.png" height=80/>
+</a>
+
 ## Performance Video
 
-You can visit our YouTube video [here](https://www.youtube.com/watch?v=M7t_dpT-hOI) to see how well our demo app works.</br></br>
+You can visit our YouTube video [here](https://www.youtube.com/watch?v=M7t_dpT-hOI) to see how well our demo app works.</br>
 [![Face Recognition Android](https://img.youtube.com/vi/M7t_dpT-hOI/0.jpg)](https://www.youtube.com/watch?v=M7t_dpT-hOI)
 
 ## Screenshots
@@ -72,8 +78,7 @@ You can visit our YouTube video [here](https://www.youtube.com/watch?v=M7t_dpT-h
 
 ## SDK License
 
-The face recognition project relies on kby-ai's SDK, which requires a license for each application ID.
-
+The face recognition project relies on our SDK, which requires a license for each application ID.</br>
 - The code below shows how to use the license: https://github.com/kby-ai/FaceRecognition-Flutter/blob/0ed0fea9f86d73d08aff81e25da479c62f2ebc05/lib/main.dart#L68-L94
 
 - To request a license, please contact us:</br>
@@ -85,51 +90,43 @@ The face recognition project relies on kby-ai's SDK, which requires a license fo
 
 ## How To Run
 ### 1. Flutter Setup
-  Make sure you have Flutter installed. 
-
-  We have tested the project with Flutter version 3.10.2. 
-
-  If you don't have Flutter installed, please follow the instructions provided in the official Flutter documentation: https://docs.flutter.dev/get-started/install
-  
+  Make sure you have Flutter installed. </br>
+  We have tested the project with Flutter version 3.10.2.</br> 
+  If you don't have Flutter installed, please follow the instructions provided in the official Flutter documentation [here](https://docs.flutter.dev/get-started/install).</br>
 ### 2. Running the App
-
   Run the following commands:
   
-  ```
+  ```bash
   flutter pub upgrade
   flutter run
-  ```
-  
-  If you plan to run the iOS app, please refer to the following link for detailed instructions: https://docs.flutter.dev/deployment/ios
-  
+  ```  
+  If you plan to run the iOS app, please refer to the following [link](https://docs.flutter.dev/deployment/ios) for detailed instructions.</br>
 ## About SDK
 ### 1. Setup
-### 1.1 'Face SDK' Setup
+### 1.1 Setting Up Face SDK
   > Android
 
-  -  Copy the SDK (libfacesdk folder) to the 'android' folder of your project.
-
-  -  Add SDK to the project in settings.gradle
-  ```
+  -  Copy the SDK (folder `libfacesdk`) to the folder `android` in your project.</br>
+  -  Add SDK to the project in `settings.gradle`.
+  ```dart
   include ':libfacesdk'
   ```
-#### 1.2 'Face SDK Plugin' Setup
-  -  Copy 'facesdk_plugin' folder to the root folder of your project.
-  
-  - Add the dependency in your pubspec.yaml file.
-  ```
+#### 1.2 Setting Up Face SDK Plugin
+  -  Copy the folder `facesdk_plugin` to the root folder of your project.</br>
+  - Add the dependency in your `pubspec.yaml` file.
+  ```dart
     facesdk_plugin:
       path: ./facesdk_plugin
   ```
-  - Import the facesdk_plugin package.
-  ```
+  - Import the `facesdk_plugin` package.
+  ```dart
     import 'package:facesdk_plugin/facesdk_plugin.dart';
     import 'package:facesdk_plugin/facedetection_interface.dart';
   ```
 ### 2 API Usages
-#### 2.1 FacesdkPlugin
-  - Activate the 'FacesdkPlugin' by calling the 'setActivation' method:
-  ```
+#### 2.1 Facesdk Plugin
+  - Activate the `FacesdkPlugin` by calling the `setActivation` method:
+  ```dart
     final _facesdkPlugin = FacesdkPlugin();
     ...
     await _facesdkPlugin
@@ -141,23 +138,23 @@ The face recognition project relies on kby-ai's SDK, which requires a license fo
                 "Yo1VrNPVGDWA/Qj6Z2tPC0ENQaB4u/vXAS0ipg==")
             .then((value) => facepluginState = value ?? -1);  
   ```
-  - Initialize the 'FacesdkPlugin':
-  ```
+  - Initialize the `FacesdkPlugin`:
+  ```dart
   await _facesdkPlugin
             .init()
             .then((value) => facepluginState = value ?? -1)
   ```
-  - Set parameters using the 'setParam' method:
-  ```
+  - Set parameters using the `setParam` method:
+  ```dart
   await _facesdkPlugin
           .setParam({'check_liveness_level': livenessLevel ?? 0})
   ```
-  - Extract faces using the 'extractFaces' method:
-  ```
+  - Extract faces using the `extractFaces` method:
+  ```dart
   final faces = await _facesdkPlugin.extractFaces(image.path)
   ```
-  - Calculate similarity between faces using the 'similarityCalculation' method:
-  ```
+  - Calculate the similarity between faces using the `similarityCalculation` method:
+  ```dart
   double similarity = await _facesdkPlugin.similarityCalculation(
                 face['templates'], person.templates) ??
             -1;
