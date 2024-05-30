@@ -101,6 +101,7 @@ class CameraBaseView(activity: Activity): PluginRegistry.RequestPermissionsResul
             .into(cameraView)
             .lensPosition(front())
             .frameProcessor(SampleFrameProcessor())
+            .previewResolution { Resolution(1280, 720) }
             .cameraErrorCallback{error -> Log.e("TestEngine", "error: " + error)}
             .build()
             
@@ -125,7 +126,7 @@ class CameraBaseView(activity: Activity): PluginRegistry.RequestPermissionsResul
                 1
             )
         } else {
-            val configuration = CameraConfiguration()
+            val configuration = CameraConfiguration(previewResolution = {Resolution(1280, 720) })
             if(this.cameraLens == 1) {
                 frontFotoapparat.switchTo(lensPosition = front(),
                     cameraConfiguration = configuration)
@@ -159,7 +160,7 @@ class CameraBaseView(activity: Activity): PluginRegistry.RequestPermissionsResul
             if (ContextCompat.checkSelfPermission(activity, Manifest.permission.CAMERA)
                 === PackageManager.PERMISSION_GRANTED
             ) {
-                val configuration = CameraConfiguration()
+                val configuration = CameraConfiguration(previewResolution = {Resolution(1280, 720) })
                 if(this.cameraLens == 1) {
                     frontFotoapparat.switchTo(lensPosition = front(),
                         cameraConfiguration = configuration)
