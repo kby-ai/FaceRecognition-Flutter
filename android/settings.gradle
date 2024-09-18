@@ -1,4 +1,4 @@
-include ':app', ':libfacesdk'
+include ':app', ':libfacesdk', 'libfotoapparat'
 
 def localPropertiesFile = new File(rootProject.projectDir, "local.properties")
 def properties = new Properties()
