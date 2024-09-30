@@ -12,9 +12,9 @@
 # FaceRecognition-Flutter
 ## Overview
 
-This repository demonstrates both face liveness detection and face recognition technology for Flutter on Android and iOS platforms.
+This repository demonstrates both `face liveness detectio`n and `face recognition` technology for `Flutter` on `Android` and `iOS` platforms.
 
-> In this repository, we integrated KBY-AI's face liveness detection and face recognition technology into the Flutter project for both Android and iOS.</br>
+> In this repository, we integrated `KBY-AI`'s `face liveness detection` and `face recognition` technology into this `Flutter` project for both `Android` and `iOS`.</br>
 ### ◾FaceSDK(Mobile) Details
 
   | Basic      | 🔽 Standard | Premium |
@@ -42,7 +42,7 @@ This repository demonstrates both face liveness detection and face recognition t
   | 8        | [Face Attribute - iOS](https://github.com/kby-ai/FaceAttribute-iOS)        | Premium SDK |
   | 9        | [Face Attribute - Flutter](https://github.com/kby-ai/FaceAttribute-Flutter)        | Premium SDK |
 
- > To get Face SDK(server), please visit products [here](https://github.com/kby-ai/Product).<br/>
+ > To get `Face SDK(server)`, please visit products [here](https://github.com/kby-ai/Product).<br/>
 
 ## Try with Demo App
 
@@ -79,7 +79,7 @@ You can visit our YouTube video [here](https://www.youtube.com/watch?v=M7t_dpT-h
 
 ## SDK License
 
-The face recognition project relies on our SDK, which requires a license for each application ID.</br>
+This repo integrated `KBY-AI`'s `face recognition SDK`, which requires a license for each `application ID`.</br>
 - The code below shows how to use the license: https://github.com/kby-ai/FaceRecognition-Flutter/blob/0ed0fea9f86d73d08aff81e25da479c62f2ebc05/lib/main.dart#L68-L94
 
 - To request a license, please contact us:</br>
@@ -91,9 +91,9 @@ The face recognition project relies on our SDK, which requires a license for eac
 
 ## How To Run
 ### 1. Flutter Setup
-  Make sure you have Flutter installed. </br>
-  We have tested the project with Flutter version 3.10.2.</br> 
-  If you don't have Flutter installed, please follow the instructions provided in the official Flutter documentation [here](https://docs.flutter.dev/get-started/install).</br>
+  Make sure you have `Flutter` installed. </br>
+  We have tested the project with `Flutter` version `3.22.3`.</br> 
+  If you don't have `Flutter` installed, please follow the instructions provided in the official `Flutter` documentation [here](https://docs.flutter.dev/get-started/install).</br>
 ### 2. Running the App
   Run the following commands:
   
@@ -101,7 +101,7 @@ The face recognition project relies on our SDK, which requires a license for eac
   flutter pub upgrade
   flutter run
   ```  
-  If you plan to run the iOS app, please refer to the following [link](https://docs.flutter.dev/deployment/ios) for detailed instructions.</br>
+  If you plan to run the `iOS` app, please refer to the following [link](https://docs.flutter.dev/deployment/ios) for detailed instructions.</br>
 ## About SDK
 ### 1. Setup
 ### 1.1 Setting Up Face SDK
