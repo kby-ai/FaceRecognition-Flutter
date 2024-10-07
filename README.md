@@ -166,4 +166,3 @@ This repo integrated `KBY-AI`'s `face recognition SDK`, which requires a license
   
   This file contains the necessary code for implementing the camera screen and performing face detection.
   
-[![Visitors](https://api.visitorbadge.io/api/combined?path=https%3A%2F%2Fgithub.com%2Fkby-ai%2FFaceRecognition-Flutter&countColor=%23263759)](https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fkby-ai%2FFaceRecognition-Flutter)
