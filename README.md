@@ -104,6 +104,9 @@ This repo integrated `KBY-AI`'s `face recognition SDK`, which requires a license
   flutter run
   ```  
   If you plan to run the `iOS` app, please refer to the following [link](https://docs.flutter.dev/deployment/ios) for detailed instructions.</br>
+### 3. Building the APK for Release
+  To create a release APK, configure ProGuard as described in this file:https://github.com/kby-ai/FaceRecognition-Flutter/blob/2baf277ceb18b96c03bc2267417093a076d47632/android/app/proguard-rules.pro#L22-L22 
+  
 ## About SDK
 ### 1. Setup
 ### 1.1 Setting Up Face SDK
