@@ -88,7 +88,7 @@ You can visit our YouTube video [here](https://www.youtube.com/watch?v=HpDggnWsG
 ## SDK License
 
 This repo integrated `KBY-AI`'s `face recognition SDK`, which requires a license for each `application ID`.</br>
-- The code below shows how to use the license: https://github.com/kby-ai/FaceRecognition-Flutter/blob/0ed0fea9f86d73d08aff81e25da479c62f2ebc05/lib/main.dart#L68-L94
+- The code below shows how to use the license: https://github.com/kby-ai/FaceRecognition-FaceLivenessDetection-Flutter/blob/8d100514871cbc86a11714533ef81c581d6f5d4c/lib/main.dart#L68-L90
 
 - To request a license, please contact us:</br>
 🧙`Email:` contact@kby-ai.com</br>
@@ -111,7 +111,7 @@ This repo integrated `KBY-AI`'s `face recognition SDK`, which requires a license
   ```  
   If you plan to run the `iOS` app, please refer to the following [link](https://docs.flutter.dev/deployment/ios) for detailed instructions.</br>
 ### 3. Building the APK for Release
-  To create a release APK, configure ProGuard as described in this file:https://github.com/kby-ai/FaceRecognition-Flutter/blob/2baf277ceb18b96c03bc2267417093a076d47632/android/app/proguard-rules.pro#L22-L22 
+  To create a release APK, configure ProGuard as described in this file:https://github.com/kby-ai/FaceRecognition-FaceLivenessDetection-Flutter/blob/8d100514871cbc86a11714533ef81c581d6f5d4c/android/app/proguard-rules.pro#L22-L22 
   
 ## About SDK
 ### 1. Setup
