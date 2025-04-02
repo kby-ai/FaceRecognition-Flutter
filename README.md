@@ -41,11 +41,11 @@ This repository demonstrates both `face liveness detectio`n and `face recognitio
   |------------------|------------------|------------------|
   | 1        | [Face Liveness Detection - Android](https://github.com/kby-ai/FaceLivenessDetection-Android)    | Basic SDK |
   | 2        | [Face Liveness Detection - iOS](https://github.com/kby-ai/FaceLivenessDetection-iOS)    | Basic SDK |
-  | 3        | [Face Recognition + Face Liveness Detection - Android](https://github.com/kby-ai/FaceRecognition-FaceLivenessDetection-Android)    | Standard SDK |
-  | 4        | [Face Recognition + Face Liveness Detection - iOS](https://github.com/kby-ai/FaceRecognition-FaceLivenessDetection-iOS)    | Standard SDK |
-  | ➡️        | <b>[Face Recognition + Face Liveness Detection - Flutter](https://github.com/kby-ai/FaceRecognition-FaceLivenessDetection-Flutter)</b>        | <b>Standard SDK</b> |
-  | 6        | [Face Recognition + Face Liveness Detection - Ionic-Cordova](https://github.com/kby-ai/FaceRecognition-FaceLivenessDetection-Ionic-Cordova)        | Standard SDK |
-  | 7        | [Face Recognition + Face Liveness Detection - React-Native](https://github.com/kby-ai/FaceRecognition-FaceLivenessDetection-React-Native)        | Standard SDK |
+  | 3        | [Face Recognition + Face Liveness Detection - Android](https://github.com/kby-ai/FaceRecognition-Android)    | Standard SDK |
+  | 4        | [Face Recognition + Face Liveness Detection - iOS](https://github.com/kby-ai/FaceRecognition-iOS)    | Standard SDK |
+  | ➡️        | <b>[Face Recognition + Face Liveness Detection - Flutter](https://github.com/kby-ai/FaceRecognition-Flutter)</b>        | <b>Standard SDK</b> |
+  | 6        | [Face Recognition + Face Liveness Detection - Ionic-Cordova](https://github.com/kby-ai/FaceRecognition-Ionic-Cordova)        | Standard SDK |
+  | 7        | [Face Recognition + Face Liveness Detection - React-Native](https://github.com/kby-ai/FaceRecognition-React-Native)        | Standard SDK |
   | 8        | [Face Attribute - Android](https://github.com/kby-ai/FaceAttribute-Android)        | Premium SDK |
   | 9        | [Face Attribute - iOS](https://github.com/kby-ai/FaceAttribute-iOS)        | Premium SDK |
   | 10        | [Face Attribute - Flutter](https://github.com/kby-ai/FaceAttribute-Flutter)        | Premium SDK |
@@ -88,7 +88,7 @@ You can visit our YouTube video [here](https://www.youtube.com/watch?v=HpDggnWsG
 ## SDK License
 
 This repo integrated `KBY-AI`'s `face recognition SDK`, which requires a license for each `application ID`.</br>
-- The code below shows how to use the license: https://github.com/kby-ai/FaceRecognition-FaceLivenessDetection-Flutter/blob/8d100514871cbc86a11714533ef81c581d6f5d4c/lib/main.dart#L68-L90
+- The code below shows how to use the license: https://github.com/kby-ai/FaceRecognition-Flutter/blob/76f1982ed301e219d864f22b584e9e34222464ea/lib/main.dart#L68-L90
 
 - To request a license, please contact us:</br>
 🧙`Email:` contact@kby-ai.com</br>
@@ -111,7 +111,7 @@ This repo integrated `KBY-AI`'s `face recognition SDK`, which requires a license
   ```  
   If you plan to run the `iOS` app, please refer to the following [link](https://docs.flutter.dev/deployment/ios) for detailed instructions.</br>
 ### 3. Building the APK for Release
-  To create a release APK, configure ProGuard as described in this file:https://github.com/kby-ai/FaceRecognition-FaceLivenessDetection-Flutter/blob/8d100514871cbc86a11714533ef81c581d6f5d4c/android/app/proguard-rules.pro#L22-L22 
+  To create a release APK, configure ProGuard as described in this file:https://github.com/kby-ai/FaceRecognition-Flutter/blob/76f1982ed301e219d864f22b584e9e34222464ea/android/app/proguard-rules.pro#L22-L22 
   
 ## About SDK
 ### 1. Setup
