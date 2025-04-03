@@ -100,7 +100,7 @@ This repo integrated `KBY-AI`'s `face recognition SDK`, which requires a license
 ## How To Run
 ### 1. Flutter Setup
   Make sure you have `Flutter` installed. </br>
-  We have tested the project with `Flutter` version `3.24.5`.</br> 
+  We have tested the project with `Flutter` version `3.29.2`.</br> 
   If you don't have `Flutter` installed, please follow the instructions provided in the official `Flutter` documentation [here](https://docs.flutter.dev/get-started/install).</br>
 ### 2. Running the App
   Run the following commands:

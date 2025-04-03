@@ -17,7 +17,9 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 
 import androidx.annotation.NonNull;
@@ -26,14 +28,12 @@ import androidx.core.app.ActivityCompat;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
 
-
-
 import io.flutter.embedding.engine.dart.DartExecutor;
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
-import io.flutter.plugin.common.PluginRegistry;
+import io.flutter.plugin.common.MethodChannel.Result;
 import io.flutter.plugin.platform.PlatformView;
 
 import com.kbyai.facesdk.*;
@@ -46,27 +46,34 @@ public class FaceDetectionFlutterView implements PlatformView, MethodCallHandler
     private final MethodChannel channel;
     private final ActivityPluginBinding activityPluginBinding;
     private CameraBaseView cameraView;
+    private final Handler mainHandler = new Handler(Looper.getMainLooper());
 
-    private Handler channelHandler = new Handler() {
+    private final Handler channelHandler = new Handler(Looper.getMainLooper()) {
         @Override
         public void handleMessage(Message msg) {
-            if(msg.what == 1) {
-                ArrayList<HashMap<String, Object>> faceBoxesMap = (ArrayList<HashMap<String, Object>>)msg.obj;
+            if (msg.what == 1) {
+                @SuppressWarnings("unchecked")
+                ArrayList<HashMap<String, Object>> faceBoxesMap = (ArrayList<HashMap<String, Object>>) msg.obj;
                 channel.invokeMethod("onFaceDetected", faceBoxesMap);
             }
         }
     };
 
-
     @Override
-    public void onMethodCall(@NonNull MethodCall call, @NonNull final MethodChannel.Result result) {
-        if (call.method.equals("startCamera")) {
-            int cameraLens = call.argument("cameraLens");
-            getCameraView().startCamera(cameraLens);
-        } else if (call.method.equals("stopCamera")) {
-            getCameraView().stopCamera();
-        } else {
-            result.notImplemented();
+    public void onMethodCall(@NonNull MethodCall call, @NonNull final Result result) {
+        switch (call.method) {
+            case "startCamera":
+                int cameraLens = Objects.requireNonNull(call.argument("cameraLens"));
+                getCameraView().startCamera(cameraLens);
+                result.success(null);
+                break;
+            case "stopCamera":
+                getCameraView().stopCamera();
+                result.success(null);
+                break;
+            default:
+                result.notImplemented();
+                break;
         }
     }
 
@@ -78,10 +85,10 @@ public class FaceDetectionFlutterView implements PlatformView, MethodCallHandler
         this.channel = new MethodChannel(dartExecutor, "facedetectionview_" + viewId);
         this.activityPluginBinding = activityPluginBinding;
         this.channel.setMethodCallHandler(this);
+        
         if (getCameraView() == null) {
             cameraView = new CameraBaseView(activityPluginBinding.getActivity());
             cameraView.setCameraViewInterface(this);
-
             activityPluginBinding.addRequestPermissionsResultListener(cameraView);
         }
     }
@@ -96,26 +103,25 @@ public class FaceDetectionFlutterView implements PlatformView, MethodCallHandler
         if (getCameraView() != null) {
             getCameraView().dispose();
         }
+        channelHandler.removeCallbacksAndMessages(null);
     }
 
     @Override
     public void onFrame(Bitmap bitmap) {
-
-        ArrayList<HashMap<String, Object>> faceBoxesMap = new ArrayList<HashMap<String, Object>>();
+        ArrayList<HashMap<String, Object>> faceBoxesMap = new ArrayList<>();
         FaceDetectionParam param = new FaceDetectionParam();
         param.check_liveness = true;
-        param.check_liveness_level = FaceDetectionFlutterView.livenessDetectionLevel;
-
+        param.check_liveness_level = livenessDetectionLevel;
+        
         List<FaceBox> faceBoxes = FaceSDK.faceDetection(bitmap, param);
-        for(int i = 0; i < faceBoxes.size(); i ++) {
-            FaceBox faceBox = faceBoxes.get(i);
+        for (FaceBox faceBox : faceBoxes) {
             byte[] templates = FaceSDK.templateExtraction(bitmap, faceBox);
-           Bitmap faceImage = Utils.cropFace(bitmap, faceBox);
-           ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-           faceImage.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
-           byte[] faceJpg = byteArrayOutputStream.toByteArray();
+            Bitmap faceImage = Utils.cropFace(bitmap, faceBox);
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            faceImage.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+            byte[] faceJpg = byteArrayOutputStream.toByteArray();
 
-            HashMap<String, Object> e = new HashMap<String, Object>();
+            HashMap<String, Object> e = new HashMap<>();
             e.put("x1", faceBox.x1);
             e.put("y1", faceBox.y1);
             e.put("x2", faceBox.x2);
@@ -132,7 +138,7 @@ public class FaceDetectionFlutterView implements PlatformView, MethodCallHandler
             faceBoxesMap.add(e);
         }
 
-        Message message = new Message();
+        Message message = Message.obtain();
         message.what = 1;
         message.obj = faceBoxesMap;
         channelHandler.sendMessage(message);
