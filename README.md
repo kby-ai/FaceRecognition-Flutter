@@ -106,7 +106,8 @@ This repo integrated `KBY-AI`'s `face recognition SDK`, which requires a license
   Run the following commands:
   
   ```bash
-  flutter pub upgrade
+  flutter clean
+  flutter pub get
   flutter run
   ```  
   If you plan to run the `iOS` app, please refer to the following [link](https://docs.flutter.dev/deployment/ios) for detailed instructions.</br>
