@@ -116,16 +116,24 @@ This repo integrated `KBY-AI`'s `face recognition SDK`, which requires a license
   
 ## About SDK
 ### 1. Setup
-### 1.1 Setting Up Face SDK
+### 1.1 Setting Up Face SDK library
   > Android
 
-  -  Copy the SDK (folder `libfacesdk`) to the folder `android` in your project.</br>
-  -  Add SDK to the project in `settings.gradle`.
+  - Copy the `SDK` (folder `libfacesdk`) to the folder `android` in your project.</br>
+  - Add `SDK` to the project in `settings.gradle` in the folder `android` in your project.
   ```dart
   include ':libfacesdk'
   ```
-#### 1.2 Setting Up Face SDK Plugin
-  -  Copy the folder `facesdk_plugin` to the root folder of your project.</br>
+### 1.2 Setting Up Fotoapparat library
+  > Android
+
+  - Copy `Fotoapparat` library (folder `libfotoapparat`) to the folder `android` in your project.</br>
+  - Add  `Fotoapparat` library to the project in `settings.gradle` in the folder `android` in your project.
+  ```dart
+  include ':libfotoapparat'
+  ```
+#### 1.3 Setting Up Face SDK Plugin
+  - Copy the folder `facesdk_plugin` to the root folder of your project.</br>
   - Add the dependency in your `pubspec.yaml` file.
   ```dart
     facesdk_plugin:
