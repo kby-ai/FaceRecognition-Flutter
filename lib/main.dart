@@ -79,11 +79,11 @@ class MyHomePageState extends State<MyHomePage> {
       } else {
         await _facesdkPlugin
             .setActivation(
-                "qtUa0F+8kUQ3IKx0KnH7INdhZobNEry1toTG1IqYBCeFFj66uMc2Znp3Tlj+fPdO212bCJrRCK27"
-                "xKyn0qNtbRene869aUDxMf9nZyPDVDuWoz6TZKdKhgAGlQ65RoLAunUrbLfIwR/OqqZU8zwxwAYU"
-                "BPn6f7X0zkoAFDwMUgBMR87RQdLDkGssfCDOmyOYW3qq1hX9k9FZvFMuC6nzJQhQgAy1edFJ4YuW"
-                "g5BKXKsulTTzq2cPwz0qPUNp1qR75OitXjo9KoojhJEM6Hj7n8l6ydcPpZpdpUURrn5/7RLEVteX"
-                "l84vhHGm6jXjOftcNdR1ikC7wM2hhfVQuhK0gA==")
+                "LvqLS/kUqek3yNzQYaskd7H2oQZeZ/9msTJ16au/DAz0ZcDtnJUqlY6Du5YffkGKZ2oWlCrE8JBJfb"
+                "rVcPvchPnZv6ZDOSZ9R1JCg+KlmyCQ2s6Xre6nhcjoAjvKbVhY3wFpwWOeKuvsCzv6hmKf5YBUMa6I"
+                "yTwcqsoCKbcVq5mJDWbWpQXwKOiFXwhmyXHBruWzI1Jd6i6cNzYRixgqLWi1sS3Kak5EiHhc91TKPd"
+                "LmZkLQQwWxr2OFSS8s3MRhrooAxxRU7XVglU+cg7tpqjvMcUSfbcLE8OYCV8DDIZfbBpEp5y1YN/gg"
+                "OpX04tojhkSIhX9l5MRTiZfMdovaZg==")
             .then((value) => facepluginState = value ?? -1);
       }
 
